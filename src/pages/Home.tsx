@@ -33,10 +33,10 @@ function Home() {
 
     return (
         <div>
-        <NavBar />
-        {listBestMovies.map((movie) => (
-            <p key={movie.id}>{movie.title}</p>
-        ))}
+            <NavBar />
+            {listBestMovies.map((movie) => (
+                <p key={movie.id}>{movie.title}</p>
+            ))}
         </div>
     
     )
