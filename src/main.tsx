@@ -4,7 +4,6 @@ import App from './App.tsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import './styles/global.scss'
-
 import Home from './pages/Home.tsx'
 import Movie from './pages/Movie.tsx'
 import Search from './pages/Search.tsx'

@@ -4,14 +4,22 @@ import NavBar from '../components/NavBar'
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
+interface IMovie {
+    id: number;
+    title: string;
+}
+
+
 function Home() {
-    const [ listBestMovies, setListBestMovies] = useState([])
+    const [ listBestMovies, setListBestMovies] = useState<IMovie[]>([])
 
     async function getListBestMovies(url: string) {
         const response = await fetch(url);
         const data = await response.json();
 
+        console.log(data)
         setListBestMovies(data.results);
+        console.log(listBestMovies);
     }
 
     useEffect(() => {
@@ -19,6 +27,7 @@ function Home() {
         console.log(theBestRatedMoviesURL)  
 
         getListBestMovies(theBestRatedMoviesURL);
+
     }, [])
     
 

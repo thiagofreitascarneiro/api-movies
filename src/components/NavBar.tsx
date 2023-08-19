@@ -12,7 +12,7 @@ function NavBar() {
         <img
           src="../src/assets/images/logo.png" 
           alt="Logo"
-          className="w-12 h-12 mr-3"
+          className="w-13 h-12 mr-3"
         />
       </div>
 
