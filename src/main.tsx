@@ -9,16 +9,21 @@ import Movie from './pages/Movie.tsx'
 import Search from './pages/Search.tsx'
 import FavoriteMovies from './pages/FavoriteMovies.tsx'
 
+import { AppProvider } from './contexts/CyclesContexts.tsx'; 
+
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="movie/:id" element={<Movie />}/>
-        <Route path="search" element={<Search />}/>
-        <Route path="favorite" element={<FavoriteMovies />}/>
-      </Routes>
+      <AppProvider>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="movie/:id" element={<Movie />}/>
+          <Route path="search" element={<Search />}/>
+          <Route path="favorite" element={<FavoriteMovies />}/>
+        </Routes>
+      </AppProvider>    
     </BrowserRouter>
     <App />
   </React.StrictMode>,

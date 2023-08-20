@@ -10,6 +10,11 @@ import {
 
 import { FaRegMoneyBillAlt } from 'react-icons/fa'
 
+interface Genre {
+  id: number;
+  name: string;
+}
+
 interface IMovie {
   id: number;
   title: string;

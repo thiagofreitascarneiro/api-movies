@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
 import { MdFavorite } from 'react-icons/md';
 import { BsCameraReelsFill } from 'react-icons/bs';
 import { ReactNode } from 'react';
+import { useFavoriteContext } from '../contexts/CyclesContexts';
+import { addFavorite, removeFavorite } from '../DataGlobalFavoritesMovies/actions';
 
 interface Genre {
   id: number;
@@ -26,11 +28,26 @@ interface CardMovieProps {
   movie: Movie;
   showLink?: boolean;
   children?: ReactNode; 
+  isFavorite?: boolean;
 }
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-function CardMovie({ movie, showLink = true, children }: CardMovieProps) {
+function CardMovie({ movie, showLink = true, children, isFavorite }: CardMovieProps) {
+
+  const { dispatch } = useFavoriteContext(); 
+  const [localIsFavorite, setLocalIsFavorite] = useState(isFavorite || false);
+  
+  function handleToggleFavorite() {
+    if (localIsFavorite) {
+      dispatch(removeFavorite(movie.id));
+      setLocalIsFavorite(false);
+    } else {
+      dispatch(addFavorite(movie));
+      setLocalIsFavorite(true);
+    }
+  }
+  
   return (
     <div className="bg-gray-800 shadow-md rounded-md overflow-hidden transition-transform transform duration-300 hover:scale-105">
       <div className="relative">
@@ -60,9 +77,12 @@ function CardMovie({ movie, showLink = true, children }: CardMovieProps) {
               <span className="hover:text-yellow-500">Details</span>
             </Link>
           )}
-          <button className="mt-4 flex items-center justify-center text-white px-3 py-2 hover:text-yellow-500 rounded">
+          <button
+            className="mt-4 flex items-center justify-center text-white px-3 py-2 hover:text-yellow-500 rounded"
+            onClick={handleToggleFavorite}
+          >
             <MdFavorite className="text-red-600 text-lg mr-2" />
-            <span>Add Favorites</span>
+            <span>{localIsFavorite ? 'Remove Favorite' : 'Add Favorite'}</span>
           </button>
         </div>
       </div>
