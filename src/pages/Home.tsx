@@ -5,7 +5,7 @@ import CardMovie from '../components/CardMovie';
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
-interface IMovie {
+interface IMovieHome {
     id: number;
     title: string;
     vote_average: number;
@@ -14,7 +14,7 @@ interface IMovie {
 
 
 function Home() {
-    const [ listBestMovies, setListBestMovies] = useState<IMovie[]>([])
+    const [ listBestMovies, setListBestMovies] = useState<IMovieHome[]>([])
 
     async function getListBestMovies(url: string) {
         const response = await fetch(url);
