@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {BiSearchAlt2} from 'react-icons/bi';
 
 function NavBar() {
     const [navbar, setNavbar] = useState(false);
+    const [ searchMovie, setSearchMovie] = useState("");
+    const navigate = useNavigate()
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        console.log(searchMovie)
+    }
 
     return (
-        <nav className="w-full bg-gray-800 ">
+        <nav className="w-full bg-gray-800 mb-10 ">
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -81,6 +88,12 @@ function NavBar() {
                                 <option value="drama">Drama</option>
                                 </select>
                             </li>
+                            <li className="text-white hover:text-indigo-200">
+                                <Link to="/favorite" className="text-gray-300 hover:bg-gray-700
+                                 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
+                                    Favorite Movies
+                                </Link>
+                            </li>
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden md:inline-block">
@@ -101,11 +114,16 @@ function NavBar() {
                     </div>
                 </div>
                 <div className="hidden space-x-2 md:inline-block">
-                    <form className="flex items-center">
+                    <form 
+                    className="flex items-center"
+                    onSubmit={handleSubmit}
+                    >
                         <input
                         type="text"
-                        placeholder="look for a movie..."
-                        className="bg-gray-700 text-white px-3 py-1 rounded mr-2" 
+                        placeholder="Look for a movie..."
+                        className="bg-gray-700 text-white px-3 py-1 rounded mr-2"
+                        onChange={(event) => setSearchMovie(event.target.value)} 
+                        value={searchMovie}
                         />
                         <button
                         type="submit"

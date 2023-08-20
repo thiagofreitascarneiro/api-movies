@@ -7,6 +7,7 @@ import './styles/global.scss'
 import Home from './pages/Home.tsx'
 import Movie from './pages/Movie.tsx'
 import Search from './pages/Search.tsx'
+import FavoriteMovies from './pages/FavoriteMovies.tsx'
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/" element={<Home />}/>
         <Route path="movie/:id" element={<Movie />}/>
         <Route path="search" element={<Search />}/>
+        <Route path="favorite" element={<FavoriteMovies />}/>
       </Routes>
     </BrowserRouter>
     <App />
