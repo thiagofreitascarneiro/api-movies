@@ -3,7 +3,6 @@ import { favoriteReducer } from '../DataGlobalFavoritesMovies/reducer';
 import { FavoriteAction, Movie } from '../DataGlobalFavoritesMovies/actions';
 
 
-
 interface AppContextValue {
   favorites: Movie[];
   dispatch: Dispatch<FavoriteAction>; 
@@ -13,7 +12,7 @@ interface AppContextProps {
   children: ReactNode;
 }
 
-const AppContext = createContext<AppContextValue | undefined>(undefined);
+export const AppContext = createContext<AppContextValue | undefined>(undefined);
 
 export const AppProvider: React.FC<AppContextProps> = ({ children }) => {
   const [favorites, dispatch] = useReducer(favoriteReducer, []);

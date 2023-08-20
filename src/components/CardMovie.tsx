@@ -6,6 +6,7 @@ import { BsCameraReelsFill } from 'react-icons/bs';
 import { ReactNode } from 'react';
 import { useFavoriteContext } from '../contexts/CyclesContexts';
 import { addFavorite, removeFavorite } from '../DataGlobalFavoritesMovies/actions';
+import { toast } from 'react-toastify';
 
 interface Genre {
   id: number;
@@ -35,18 +36,29 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 function CardMovie({ movie, showLink = true, children, isFavorite }: CardMovieProps) {
 
-  const { dispatch } = useFavoriteContext(); 
+  const { favorites, dispatch } = useFavoriteContext(); 
   const [localIsFavorite, setLocalIsFavorite] = useState(isFavorite || false);
   
+
   function handleToggleFavorite() {
     if (localIsFavorite) {
       dispatch(removeFavorite(movie.id));
       setLocalIsFavorite(false);
+      toast.success('Movie removed from favorites!');
     } else {
+      const existingMovie = favorites.find((favMovie) => favMovie.id === movie.id);
+
+      if (existingMovie) {
+        toast.info('This movie is already in favorites!');
+        return;
+      }
+
       dispatch(addFavorite(movie));
       setLocalIsFavorite(true);
+      toast.success('Movie added to favorites!');
     }
   }
+   
   
   return (
     <div className="bg-gray-800 shadow-md rounded-md overflow-hidden transition-transform transform duration-300 hover:scale-105">

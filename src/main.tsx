@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import './styles/global.scss'
@@ -9,7 +8,10 @@ import Movie from './pages/Movie.tsx'
 import Search from './pages/Search.tsx'
 import FavoriteMovies from './pages/FavoriteMovies.tsx'
 
+import 'react-toastify/dist/ReactToastify.css';
+
 import { AppProvider } from './contexts/CyclesContexts.tsx'; 
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -25,6 +27,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </Routes>
       </AppProvider>    
     </BrowserRouter>
-    <App />
+    <ToastContainer position="top-right" autoClose={3000} />
   </React.StrictMode>,
 )
+
+
