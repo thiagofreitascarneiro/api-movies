@@ -7,9 +7,12 @@ function NavBar() {
     const [ searchMovie, setSearchMovie] = useState("");
     const navigate = useNavigate()
 
-    function handleSubmit(event) {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        console.log(searchMovie)
+        if (!searchMovie) return;
+
+        navigate(`/search?q=${searchMovie}`);
+        setSearchMovie("");
     }
 
     return (
@@ -17,7 +20,7 @@ function NavBar() {
             <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
                 <div>
                     <div className="flex items-center justify-between py-3 md:py-5 md:block">
-                        <a href="javascript:void(0)">
+                        <a>
                         <img
                             src="../src/assets/images/logo.png" 
                             alt="Logo"
@@ -76,12 +79,6 @@ function NavBar() {
                                 </Link>
                             </li>
                             <li className="text-white hover:text-indigo-200">
-                                <Link to="/movie" className="text-gray-300 hover:bg-gray-700
-                                 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-                                    Movie
-                                </Link>
-                            </li>
-                            <li className="text-white hover:text-indigo-200">
                                 <select className="text-white bg-gray-700 px-2 py-1 rounded">
                                 <option value="action">Action</option>
                                 <option value="comedy">Comedy</option>
@@ -137,49 +134,5 @@ function NavBar() {
         </nav>
     );
 }
-    
-//   return (
-//     <nav className="bg-gray-800 p-4 flex items-center justify-between">
-//       {/* Logo */}
-//       <div className="flex items-center">
-//         <img
-//           src="../src/assets/images/logo.png" 
-//           alt="Logo"
-//           className="w-1 h-12 mr-3"
-//         />
-//       </div>
-
-//       {/* Links */}
-//       <div className="flex items-center space-x-6">
-//         <Link to="/" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-//           Home
-//         </Link>
-//         <Link to="/movie" className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">
-//           Movie
-//           </Link>
-//         <select className="text-white bg-gray-700 px-2 py-1 rounded">
-//           <option value="action">Action</option>
-//           <option value="comedy">Comedy</option>
-//           <option value="drama">Drama</option>
-//         </select>
-//       </div>
-
-     
-//       <form className="flex items-center">
-//         <input
-//           type="text"
-//           placeholder="look for a movie..."
-//           className="bg-gray-700 text-white px-3 py-1 rounded mr-2" 
-//         />
-//         <button
-//           type="submit"
-//           className="text-gray-300 hover:text-white"
-//         >
-//           <BiSearchAlt2 className="h-6 w-6" /> 
-//         </button>
-//       </form>
-//     </nav>
-//   );
-// }
 
 export default NavBar;

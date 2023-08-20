@@ -20,14 +20,11 @@ function Home() {
         const response = await fetch(url);
         const data = await response.json();
 
-        console.log(data)
         setListBestMovies(data.results);
-        console.log(listBestMovies);
     }
 
     useEffect(() => {
         const theBestRatedMoviesURL = `${moviesURL}top_rated?${apiKey}`;
-        console.log(theBestRatedMoviesURL)  
 
         getListBestMovies(theBestRatedMoviesURL);
 
@@ -37,7 +34,7 @@ function Home() {
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <NavBar />
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {listBestMovies.map((movie) => (
                     <CardMovie key={movie.id} movie={movie} />
                 ))}

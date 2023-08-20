@@ -34,7 +34,7 @@ function CardMovie( {movie, showLink = true}: CardMovieProps ) {
           </div>
           <div className="p-4">
             <h2 className="text-xl text-white font-semibold mb-2">{movie.title}</h2>
-            <p className="flex items-center text-gray-600">
+            <p className="flex items-center text-white">
               <FaStar className="text-yellow-500 mr-1" /> {movie.vote_average}
             </p>
             <div className="flex justify-between items-center">
@@ -48,7 +48,7 @@ function CardMovie( {movie, showLink = true}: CardMovieProps ) {
               </Link>
                 )}
                 <button className="mt-4 flex items-center justify-center text-white px-3 py-2 hover:text-yellow-500 rounded">
-                    <MdFavorite className="text-green-800 text-lg mr-2" />
+                    <MdFavorite className="text-red-600 text-lg mr-2" />
                     <span>Add Favorites</span>
                 </button>
             </div>
