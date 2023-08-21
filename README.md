@@ -23,7 +23,7 @@
 ## :dart: Sobre ##
 
 
-<p> Plataforma de Filmes é um projeto que oferece uma experiência interativa para os amantes de filmes, 
+<p> SaintStream é um projeto que oferece uma experiência interativa para os amantes de filmes, 
 permitindo que os usuários explorem uma vasta coleção de filmes de diferentes gêneros e categorias. 
 A aplicação consome a API do TMDB (The Movie Database) para fornecer dados atualizados 
 e detalhados sobre filmes de todo o mundo.
@@ -68,10 +68,12 @@ As seguintes tecnologias foram utilizadas no projeto:
 # Clone this project
 $ git clone https://github.com/thiagofreitascarneiro/api-movies
 # Access
-$ cd ignews
+$ cd api-movies
 # Install dependencies
 $ npm install
 # Run the project
+$ .env.example
+# replace to .env
 $ npm run dev
 # The server will initialize in the <http://localhost:5173>
 ```
