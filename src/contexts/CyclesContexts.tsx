@@ -22,13 +22,11 @@ export const AppProvider: React.FC<AppContextProps> = ({ children }) => {
     const storedFavorites = localStorage.getItem('favorites');
     if (storedFavorites) {
       const parsedFavorites = JSON.parse(storedFavorites);
-      console.log('Favorites loaded:', parsedFavorites);
       dispatch(loadFavorites(parsedFavorites));
     }
   }, []);
 
   useEffect(() => {
-    console.log('Favorites to be saved:', favorites);
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
