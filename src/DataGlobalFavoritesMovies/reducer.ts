@@ -23,7 +23,7 @@ export const favoriteReducer = (state: Movie[], action: FavoriteAction) => {
 
         default:
             return state;
-        }
+    }
 };
 
 

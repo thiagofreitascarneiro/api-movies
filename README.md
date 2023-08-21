@@ -1,6 +1,6 @@
 <h1 align="center">
 
-<img src="./src/assets/images/logo-readme.png" alt="logo" width="300px"/>
+<img src="./src/assets/images/logo.png" alt="logo" width="300px"/>
 
 </h1>
 
@@ -19,12 +19,30 @@
 
 <br>
 
-![](next.png)
 
 ## :dart: Sobre ##
 
 
-<p>xxxxxxxxxxx</p>
+<p> Plataforma de Filmes é um projeto que oferece uma experiência interativa para os amantes de filmes, 
+permitindo que os usuários explorem uma vasta coleção de filmes de diferentes gêneros e categorias. 
+A aplicação consome a API do TMDB (The Movie Database) para fornecer dados atualizados 
+e detalhados sobre filmes de todo o mundo.
+</p>
+
+### Recursos Principais
+
+<b>Pesquisa de Filmes:</b> Os usuários podem buscar por filmes específicos usando a funcionalidade de pesquisa, tornando mais fácil encontrar seus filmes favoritos.
+
+<b>Exploração por Gênero:</b> Os filmes são categorizados por gênero, permitindo que os usuários naveguem por categorias populares como comédia, ação, aventura e muito mais.
+
+<b>Detalhes do Filme:</b> Ao selecionar um filme, os usuários podem acessar informações detalhadas, incluindo sinopse, data de lançamento, avaliações, categorias, custos, receitas etc...
+
+<b>Lista de Favoritos:</b> Os usuários têm a capacidade de adicionar filmes à lista de favoritos, permitindo que eles mantenham uma coleção personalizada dos filmes que mais gostam.
+
+<b>Remoção de Favoritos:</b> Além de adicionar filmes aos favoritos, os usuários também podem remover filmes da lista a qualquer momento.
+
+
+<br>
 
 
 
@@ -36,6 +54,7 @@ As seguintes tecnologias foram utilizadas no projeto:
 - [sass](https://sass-lang.com/)
 - [tailwindcss](https://tailwindcss.com/)
 - [typescript](https://www.typescriptlang.org/)
+- [TMDB-API](https://developer.themoviedb.org/reference/intro/getting-started)
 
 ## :white_check_mark: Requerimentos ##
 ##### versões

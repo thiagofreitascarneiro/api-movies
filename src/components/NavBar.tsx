@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {BiSearchAlt2} from 'react-icons/bi';
 import { IGenre } from '../pages/Home';
+import { useFavoriteContext } from '../contexts/CyclesContexts';
 
 export interface NavBarProps {
     genres?: IGenre[]; 
@@ -11,7 +12,9 @@ export interface NavBarProps {
 function NavBar({ genres, setSelectedGenre }: NavBarProps) {
     const [navbar, setNavbar] = useState(false);
     const [ searchMovie, setSearchMovie] = useState("");
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const { favorites } = useFavoriteContext(); 
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -101,11 +104,14 @@ function NavBar({ genres, setSelectedGenre }: NavBarProps) {
                                     </select>
                                 )}
                             </li>
-                            <li className="text-white hover:text-indigo-200">
+                            <li className="relative text-white hover:text-indigo-200">
                                 <Link to="/favorite" className="text-gray-300 hover:bg-gray-700
                                  hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                                     Favorite Movies
                                 </Link>
+                                <div className="absolute top-[-0.95rem] right-[-0.95rem] bg-gray-700 text-white text-xs px-2 py-1 rounded-full transform -translate-x-1/2">
+                                    {favorites.length}
+                                </div>
                             </li>
                         </ul>
 
