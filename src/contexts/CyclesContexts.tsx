@@ -1,32 +1,43 @@
-import React, { createContext, useContext, useReducer, ReactNode, Dispatch } from 'react';
-import { favoriteReducer } from '../DataGlobalFavoritesMovies/reducer';
-import { FavoriteAction, Movie } from '../DataGlobalFavoritesMovies/actions';
+// context.tsx
 
+import { createContext, useContext, useReducer, useEffect, ReactNode, Dispatch } from 'react';
+import { favoriteReducer } from '../DataGlobalFavoritesMovies/reducer';
+import { FavoriteAction, Movie, loadFavorites } from '../DataGlobalFavoritesMovies/actions';
 
 interface AppContextValue {
   favorites: Movie[];
-  dispatch: Dispatch<FavoriteAction>; 
+  dispatch: Dispatch<FavoriteAction>;
 }
 
 interface AppContextProps {
   children: ReactNode;
 }
 
-export const AppContext = createContext<AppContextValue | undefined>(undefined);
+const AppContext = createContext<AppContextValue | undefined>(undefined);
 
 export const AppProvider: React.FC<AppContextProps> = ({ children }) => {
   const [favorites, dispatch] = useReducer(favoriteReducer, []);
+
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favorites');
+    if (storedFavorites) {
+      const parsedFavorites = JSON.parse(storedFavorites);
+      console.log('Favorites loaded:', parsedFavorites);
+      dispatch(loadFavorites(parsedFavorites));
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log('Favorites to be saved:', favorites);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
   const contextValue: AppContextValue = {
     favorites,
     dispatch,
   };
 
-  return (
-    <AppContext.Provider value={contextValue}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
 };
 
 export const useFavoriteContext = () => {

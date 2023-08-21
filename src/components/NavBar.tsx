@@ -87,17 +87,19 @@ function NavBar({ genres, setSelectedGenre }: NavBarProps) {
                             <li className="text-white hover:text-indigo-200">
                                 {genres && (
                                     <select
-                                    className="text-white bg-gray-700 px-2 py-1 rounded"
+                                    className="text-white bg-gray-700 px-2 py-1 rounded
+                                    focus:outline-none focus:border-none"
                                     onChange={(event) => setSelectedGenre && setSelectedGenre(event.target.value)}
                                     >
                                     <option value="">Best rated</option>
                                     {genres.map((genre) => (
-                                        <option key={genre.id} value={genre.id}>
+                                        <option 
+                                            key={genre.id} value={genre.id}>
                                         {genre.name}
                                         </option>
                                     ))}
                                     </select>
-                                    )}
+                                )}
                             </li>
                             <li className="text-white hover:text-indigo-200">
                                 <Link to="/favorite" className="text-gray-300 hover:bg-gray-700
