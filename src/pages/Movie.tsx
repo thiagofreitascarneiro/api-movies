@@ -44,7 +44,6 @@ const Movie = () => {
     const data = await response.json();
 
     setMovie(data);
-    console.log(movie);
   }
 
   useEffect(() => {

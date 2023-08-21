@@ -37,8 +37,8 @@ function Search() {
     return (
     <div className="px-4 sm:px-6 lg:px-8">
         <NavBar />
-        <h2>
-            Results for: <span>{query}</span>
+        <h2 className="text-2xl text-center font-semibold text-white mb-4">
+            Results for: <span className="text-yellow-500 text-4xl ">{query}</span>
         </h2>
         {<div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {searchMovies && (

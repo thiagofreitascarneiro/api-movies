@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {BiSearchAlt2} from 'react-icons/bi';
+import { IGenre } from '../pages/Home';
 
-function NavBar() {
+export interface NavBarProps {
+    genres?: IGenre[]; 
+    setSelectedGenre?: React.Dispatch<React.SetStateAction<string>>;
+  }
+
+function NavBar({ genres, setSelectedGenre }: NavBarProps) {
     const [navbar, setNavbar] = useState(false);
     const [ searchMovie, setSearchMovie] = useState("");
     const navigate = useNavigate()
@@ -79,11 +85,19 @@ function NavBar() {
                                 </Link>
                             </li>
                             <li className="text-white hover:text-indigo-200">
-                                <select className="text-white bg-gray-700 px-2 py-1 rounded">
-                                <option value="action">Action</option>
-                                <option value="comedy">Comedy</option>
-                                <option value="drama">Drama</option>
-                                </select>
+                                {genres && (
+                                    <select
+                                    className="text-white bg-gray-700 px-2 py-1 rounded"
+                                    onChange={(event) => setSelectedGenre && setSelectedGenre(event.target.value)}
+                                    >
+                                    <option value="">Best rated</option>
+                                    {genres.map((genre) => (
+                                        <option key={genre.id} value={genre.id}>
+                                        {genre.name}
+                                        </option>
+                                    ))}
+                                    </select>
+                                    )}
                             </li>
                             <li className="text-white hover:text-indigo-200">
                                 <Link to="/favorite" className="text-gray-300 hover:bg-gray-700

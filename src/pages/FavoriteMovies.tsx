@@ -7,8 +7,6 @@ function FavoriteMovies()  {
 
   const { favorites } = useFavoriteContext();
 
-  console.log(favorites);
-
   return (
     <div className="px-4 sm:px-6 lg:px-8">
     <NavBar />
