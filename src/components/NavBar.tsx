@@ -109,24 +109,28 @@ function NavBar({ genres, setSelectedGenre }: NavBarProps) {
                                  hover:text-white rounded-md px-3 py-2 text-sm font-medium">
                                     Favorite Movies
                                 </Link>
-                                <div className="absolute top-[-0.95rem] right-[-0.95rem] bg-gray-700 text-white text-xs px-2 py-1 rounded-full transform -translate-x-1/2">
+                                <div className="hidden md:block absolute top-[-0.95rem] 
+                                right-[-0.95rem] bg-gray-700 text-white text-xs px-2 py-1
+                                    rounded-full transform -translate-x-1/2 ">
                                     {favorites.length}
                                 </div>
                             </li>
                         </ul>
 
                         <div className="mt-3 space-y-2 lg:hidden md:inline-block">
-                            <form className="flex items-center">
+                            <form className="flex items-center" onSubmit={handleSubmit}>
                                 <input
-                                type="text"
-                                placeholder="look for a movie..."
-                                className="bg-gray-700 text-white px-3 py-1 rounded mr-2" 
+                                    type="text"
+                                    placeholder="Look for a movie..."
+                                    className="bg-gray-700 text-white px-3 py-1 rounded mr-2"
+                                    onChange={(event) => setSearchMovie(event.target.value)} 
+                                    value={searchMovie}
                                 />
                                 <button
-                                type="submit"
-                                className="text-gray-300 hover:text-white"
+                                    type="submit"
+                                    className="text-gray-300 hover:text-white"
                                 >
-                                <BiSearchAlt2 className="h-6 w-6" /> 
+                                    <BiSearchAlt2 className="h-6 w-6" /> 
                                 </button>
                             </form>
                         </div>

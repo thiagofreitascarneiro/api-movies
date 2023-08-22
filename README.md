@@ -46,7 +46,7 @@ e detalhados sobre filmes de todo o mundo.
 
 
 
-## 🧪 Tecnologias ##
+## :rocket: Tecnologias ##
 
 As seguintes tecnologias foram utilizadas no projeto:
 
@@ -55,6 +55,7 @@ As seguintes tecnologias foram utilizadas no projeto:
 - [tailwindcss](https://tailwindcss.com/)
 - [typescript](https://www.typescriptlang.org/)
 - [TMDB-API](https://developer.themoviedb.org/reference/intro/getting-started)
+- [ContextAPI](https://legacy.reactjs.org/docs/context.html)
 
 ## :white_check_mark: Requerimentos ##
 ##### versões

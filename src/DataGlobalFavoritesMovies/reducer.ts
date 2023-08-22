@@ -18,9 +18,6 @@ export const favoriteReducer = (state: Movie[], action: FavoriteAction) => {
             updatedState = state.filter((movie) => movie.id !== action.payload);
             return updatedState;
 
-        case ActionTypes.LOAD_FAVORITES:
-            return action.payload;
-
         default:
             return state;
     }

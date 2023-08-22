@@ -20,13 +20,8 @@ export interface Movie {
     type: ActionTypes.REMOVE_FAVORITE;
     payload: number; 
   }
-
-  export interface LoadFavoritesAction {
-    type: ActionTypes.LOAD_FAVORITES;
-    payload: Movie[];
-  }
   
-  export type FavoriteAction = AddFavoriteAction | RemoveFavoriteAction | LoadFavoritesAction;
+  export type FavoriteAction = AddFavoriteAction | RemoveFavoriteAction;
   
   export const addFavorite = (movie: Movie): AddFavoriteAction => ({
     type: ActionTypes.ADD_FAVORITE,
@@ -38,8 +33,4 @@ export interface Movie {
     payload: movieId,
   });
 
-  export const loadFavorites = (favorites: Movie[]): LoadFavoritesAction => ({
-    type: ActionTypes.LOAD_FAVORITES,
-    payload: favorites,
-  });
   
