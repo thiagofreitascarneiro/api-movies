@@ -72,9 +72,9 @@ $ git clone https://github.com/thiagofreitascarneiro/api-movies
 $ cd api-movies
 # Install dependencies
 $ npm install
-# Run the project
-$ .env.example
 # replace to .env
+$ .env.example
+# Run the project
 $ npm run dev
 # The server will initialize in the <http://localhost:5173>
 ```
